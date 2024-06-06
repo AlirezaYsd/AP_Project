@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class cli {
+public class Cli {
     public static void main(String[] args) {
         Teacher t1 = new Teacher("alireza");
         Student s1 = new Student("amir",1,"1234");
