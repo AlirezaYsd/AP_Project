@@ -1,3 +1,5 @@
+package core;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -134,26 +136,38 @@ public class Course {
     }
     public boolean addStudent(Student student){
         this.gp_list.put(student,null);
+        student.addCourse(this);
         return this.students_list.add(student);
     }
     public boolean delStudent(Student student){
         this.gp_list.remove(student);
+        student.delCourse(this);
         return this.students_list.remove(student);
     }
     public Integer highestGrade(){
-        int max = 0;
-        for(Integer i : this.gp_list.values()){
-            if(i > max){
-                max = i;
+        if(this.gp_list != null){
+            int max = 0;
+            for(Integer i : this.gp_list.values()){
+                if(i > max){
+                    max = i;
+                }
             }
+            return max;
         }
-        return max;
+        else{
+            System.out.println("ُThe gp list is empty!");
+            return 0;
+        }
     }
     public void addAssignment(Assignment a){
         this.assignments_list.add(a);
+        for(int i = this.students_list.size()-1; i >= 0; i--){
+            this.students_list.get(i).addAssignment(a);
+        }
     }
     public void changeGp(Student s, Integer gp){
         this.gp_list.put(s,gp);
+        s.changeGp(this,gp);
     }
 
 }

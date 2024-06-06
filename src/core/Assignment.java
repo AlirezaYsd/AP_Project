@@ -1,3 +1,5 @@
+package core;
+
 public class Assignment {
     private int deadline;
     private Course course;

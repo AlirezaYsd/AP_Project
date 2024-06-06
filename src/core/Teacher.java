@@ -1,3 +1,5 @@
+package core;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,6 +40,12 @@ public class Teacher {
     }
     public void addAssignment(Assignment a, Course c){
         c.addAssignment(a);
+    }
+    public void addCourse(Course c){
+        this.courses.add(c);
+    }
+    public void delCourse(Course c){
+        this.courses.remove(c);
     }
 
 }
